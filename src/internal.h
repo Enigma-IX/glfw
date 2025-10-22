@@ -564,15 +564,15 @@ struct _GLFWwindow
     _GLFWcontext        context;
 
     struct {
-        GLFWwindowposfun        pos;
-        GLFWtitlebarhittestfun  tbhittest;
-        GLFWwindowsizefun       size;
-        GLFWwindowclosefun      close;
-        GLFWwindowrefreshfun    refresh;
-        GLFWwindowfocusfun      focus;
-        GLFWwindowiconifyfun    iconify;
-        GLFWwindowmaximizefun   maximize;
-        GLFWframebuffersizefun  fbsize;
+        GLFWwindowposfun          pos;
+        GLFWtitlebarhittestfun    tbhittest;
+        GLFWwindowsizefun         size;
+        GLFWwindowclosefun        close;
+        GLFWwindowrefreshfun      refresh;
+        GLFWwindowfocusfun        focus;
+        GLFWwindowiconifyfun      iconify;
+        GLFWwindowmaximizefun     maximize;
+        GLFWframebuffersizefun    fbsize;
         GLFWwindowcontentscalefun scale;
         GLFWmousebuttonfun        mouseButton;
         GLFWcursorposfun          cursorPos;

@@ -97,6 +97,8 @@ void _glfwInputWindowSize(_GLFWwindow* window, int width, int height)
 //
 void _glfwInputTitleBarHitTest(_GLFWwindow* window, int posX, int posY, int* hit)
 {
+    assert(window != NULL);
+
     if (window->callbacks.tbhittest)
         window->callbacks.tbhittest((GLFWwindow*)window, posX, posY, hit);
 }
@@ -978,6 +980,8 @@ GLFWAPI void glfwSetWindowAttrib(GLFWwindow* handle, int attrib, int value)
             window->decorated = value;
             if (!window->monitor)
                 _glfw.platform.setWindowDecorated(window, value);
+            return;
+
 		case GLFW_TITLEBAR:
 			if (_glfw.hints.window.titlebar == value)
             	return;
@@ -1089,6 +1093,8 @@ GLFWAPI GLFWwindowposfun glfwSetWindowPosCallback(GLFWwindow* handle,
 
 GLFWAPI GLFWtitlebarhittestfun glfwSetTitlebarHitTestCallback(GLFWwindow* handle, GLFWtitlebarhittestfun tbhtfun)
 {
+    _GLFW_REQUIRE_INIT_OR_RETURN(NULL);
+
     _GLFWwindow* window = (_GLFWwindow*)handle;
     assert(window != NULL);
 

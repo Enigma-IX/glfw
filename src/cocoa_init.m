@@ -552,7 +552,7 @@ GLFWbool _glfwConnectCocoa(int platformID, _GLFWplatform* platform)
         .getWindowOpacity = _glfwGetWindowOpacityCocoa,
         .setWindowResizable = _glfwSetWindowResizableCocoa,
         .setWindowDecorated = _glfwSetWindowDecoratedCocoa,
-        .setWindowFloating = _glfwSetWindowFloatingNull,
+        .setWindowFloating = _glfwSetWindowFloatingCocoa,
         .setWindowOpacity = _glfwSetWindowOpacityCocoa,
         .setWindowMousePassthrough = _glfwSetWindowMousePassthroughCocoa,
         .pollEvents = _glfwPollEventsCocoa,
@@ -561,7 +561,7 @@ GLFWbool _glfwConnectCocoa(int platformID, _GLFWplatform* platform)
         .postEmptyEvent = _glfwPostEmptyEventCocoa,
 
         // Hazel
-        _glfwSetWindowTitlebarNull,
+        .setWindowTitlebar = _glfwSetWindowTitlebarCocoa,
 
         .getEGLPlatform = _glfwGetEGLPlatformCocoa,
         .getEGLNativeDisplay = _glfwGetEGLNativeDisplayCocoa,
