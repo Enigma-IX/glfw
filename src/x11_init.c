@@ -1243,7 +1243,7 @@ GLFWbool _glfwConnectX11(int platformID, _GLFWplatform* platform)
         .postEmptyEvent = _glfwPostEmptyEventX11,
 
         // Hazel
-        .setWindowTitlebar = _glfwSetWindowTitlebarX11,
+        .setWindowTitleBar = _glfwSetWindowTitlebarX11,
 
         .getEGLPlatform = _glfwGetEGLPlatformX11,
         .getEGLNativeDisplay = _glfwGetEGLNativeDisplayX11,

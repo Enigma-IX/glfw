@@ -666,7 +666,7 @@ GLFWbool _glfwConnectWin32(int platformID, _GLFWplatform* platform)
         .postEmptyEvent = _glfwPostEmptyEventWin32,
 
         // Hazel
-        .setWindowTitlebar = _glfwSetWindowTitlebarWin32,
+        .setWindowTitleBar = _glfwSetWindowTitlebarWin32,
 
         .getEGLPlatform = _glfwGetEGLPlatformWin32,
         .getEGLNativeDisplay = _glfwGetEGLNativeDisplayWin32,

@@ -561,7 +561,7 @@ GLFWbool _glfwConnectCocoa(int platformID, _GLFWplatform* platform)
         .postEmptyEvent = _glfwPostEmptyEventCocoa,
 
         // Hazel
-        .setWindowTitlebar = _glfwSetWindowTitlebarCocoa,
+        .setWindowTitleBar = _glfwSetWindowTitlebarCocoa,
 
         .getEGLPlatform = _glfwGetEGLPlatformCocoa,
         .getEGLNativeDisplay = _glfwGetEGLNativeDisplayCocoa,
