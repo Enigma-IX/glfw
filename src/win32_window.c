@@ -550,41 +550,7 @@ static LRESULT CALLBACK windowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                 // area static when the non-client area is scaled
                 if (wndconfig && wndconfig->scaleToMonitor)
                     EnableNonClientDpiScaling(hWnd);
-            }
-
-            case WM_CREATE:
-            {
-                if (_glfw.hints.window.titlebar)
-                    break;
-
-                if (hasThickFrame)
-                {
-                    RECT size_rect;
-                    GetWindowRect(hWnd, &size_rect);
-
-                    // Inform the application of the frame change to force redrawing with the new
-                    // client area that is extended into the title bar
-                    SetWindowPos(
-                        hWnd, NULL,
-                        size_rect.left, size_rect.top,
-                        size_rect.right - size_rect.left, size_rect.bottom - size_rect.top,
-                        SWP_FRAMECHANGED | SWP_NOMOVE | SWP_NOSIZE
-                    );
-                    break;
-                }
-
-                break;
-            }
-
-            case WM_ACTIVATE:
-            {
-                if (_glfw.hints.window.titlebar)
-                    break;
-
-				RECT title_bar_rect = {0};
-				InvalidateRect(hWnd, &title_bar_rect, FALSE);
-                break;
-            }
+            }            
         }
 
         return DefWindowProcW(hWnd, uMsg, wParam, lParam);
@@ -600,6 +566,30 @@ static LRESULT CALLBACK windowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
             {
                 if (LOWORD(lParam) != HTCLIENT)
                     window->win32.frameAction = GLFW_TRUE;
+            }
+
+            break;
+        }
+
+        case WM_CREATE:
+        {
+            if (_glfw.hints.window.titlebar)
+                break;
+
+            if (hasThickFrame)
+            {
+                RECT size_rect;
+                GetWindowRect(hWnd, &size_rect);
+
+                // Inform the application of the frame change to force redrawing with the new
+                // client area that is extended into the title bar
+                SetWindowPos(
+                    hWnd, NULL,
+                    size_rect.left, size_rect.top,
+                    size_rect.right - size_rect.left, size_rect.bottom - size_rect.top,
+                    SWP_FRAMECHANGED | SWP_NOMOVE | SWP_NOSIZE
+                );
+                break;
             }
 
             break;
